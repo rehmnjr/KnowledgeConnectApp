@@ -1,0 +1,21 @@
+name: Deploy KnowledgeConnect Backend
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Render
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }} # Add this in GitHub repo secrets
+          api-key: ${{ secrets.RENDER_API_KEY }} # Add this in GitHub repo secrets 

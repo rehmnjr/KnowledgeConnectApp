@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262 86% 75%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 262 74% 50%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 199 92% 56%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262 86% 75%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-gradient-to-b from-[#000B43] to-[#1E001C] text-foreground min-h-screen;
+  }
+  
+  .card-border {
+    @apply border-[#925FE2] border rounded-xl;
+  }
+
+  .sidebar {
+    @apply bg-black/20 backdrop-blur-md;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-md rounded-xl border border-white/20;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-2 bg-primary rounded-full text-white font-medium hover:bg-secondary transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-2 bg-transparent border border-primary rounded-full text-white font-medium hover:bg-primary/20 transition-colors;
+  }
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
