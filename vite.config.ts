@@ -16,5 +16,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/KnowledgeConnect/' : '/', // Repository name with proper capitalization
+  base: process.env.NODE_ENV === 'production' ? './' : '/', 
 });
