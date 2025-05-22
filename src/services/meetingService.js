@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://knowledgeconnectapp.onrender.com';
 
-// Set up axios defaults
 axios.defaults.baseURL = API_URL;
 axios.defaults.headers.common['Content-Type'] = 'application/json';
 
-// Add request interceptor to include auth token
+
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -20,12 +19,12 @@ axios.interceptors.request.use(
   }
 );
 
-// Add response interceptor to handle token expiration
+
 axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Only redirect if not already on login page
+
       if (!window.location.pathname.includes('/login')) {
         localStorage.removeItem('token');
         window.location.href = '/login';
