@@ -1,17 +1,22 @@
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard";
-import DiscoverTopics from "./pages/DiscoverTopics";
-import ScheduledMeetings from "./pages/ScheduledMeetings";
-import Profile from "./pages/Profile";
-import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import { useState } from "react";
-import { AppProvider } from "./context/AppContext";
+
+import Sidebar from "@/components/Sidebar";
+import { AppProvider } from "@/context/AppContext";
+
+import NotFound from "@/pages/NotFound";
+
+import Login from "@/pages/Login";
+import Profile from "@/pages/Profile";
+import Dashboard from "@/pages/Dashboard";
+import DiscoverTopics from "@/pages/DiscoverTopics";
+import ScheduledMeetings from "@/pages/ScheduledMeetings";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,7 +37,7 @@ const App = () => {
       <AppProvider>
         <Toaster />
         <Sonner />
-        <HashRouter>
+        <BrowserRouter>
           <div className="flex">
             <Sidebar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
               <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0 lg:ml-64'}`}>
@@ -46,7 +51,7 @@ const App = () => {
               </Routes>
             </div>
           </div>
-        </HashRouter>
+        </BrowserRouter>
       </AppProvider>
     </TooltipProvider>
   </QueryClientProvider>
