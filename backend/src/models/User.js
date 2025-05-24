@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
   }],
   profilePicture: {
     type: String,
-    default: 'https://i.pravatar.cc/150?img=3'
+    default: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
   },
   bio: {
     type: String,
