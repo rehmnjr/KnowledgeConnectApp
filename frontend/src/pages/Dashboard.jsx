@@ -49,12 +49,9 @@ const Dashboard = () => {
   };
 
   // Show loading state while fetching data
-  if (loading.user || loading.meetings || loading.topics || loading.userMeetings) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <Loader2 className="h-12 w-12 animate-spin text-purple" />
-      </div>
-    );
+  if (!user) {
+   navigate('/login');
+    return null; // or a loading spinner
   }
 
   return (

@@ -24,19 +24,21 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Health check endpoint
+app.get('/', (_req, res) => {
+  res.json({ status: 'ok', message: 'Welcome to the KnowledgeConnect' });
+});
+
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/topics', topicRoutes);
 app.use('/api/meetings', meetingRoutes);
 app.use('/api/user-meetings', userMeetingRoutes);
 
-// Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Welcome to the KnowledgeConnect' });
-});
+
 
 // Error handling middleware
-app.use((err, req, res, next) => {
+app.use((err, _req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });

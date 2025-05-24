@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use environment variables for API URL with fallback
-const API_URL = import.meta.env.VITE_API_URL || 'https://knowledgeconnectapp.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'https://knowledgeconnectapp-backend.onrender.com/api';
 
 // Set up axios defaults
 axios.defaults.baseURL = API_URL;

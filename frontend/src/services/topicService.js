@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://knowledgeconnectapp.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'https://knowledgeconnectapp-backend.onrender.com/api';
 
 // We'll use the axios interceptors that are already configured in other services
 // So we don't need to add token for each request manually
